@@ -1,103 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
+import list from "../data/list.json";
+
+type Product = {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  price: number;
+  category: string;
+  inventory: number;
+  lastUpdated: string;
+};
+
+const products = list as unknown as Product[];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="max-w-6xl mx-auto p-6">
+      <header className="mb-6">
+        <h1 style={{ fontFamily: "var(--font-logo)" }} className="text-4xl font-bold">Products</h1>
+        <p className="text-muted mt-1">A showcase of our catalog — click a product to view details.</p>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="min-h-screen">
+        {/* Redesigned bento mosaic: distinct hero and a taller second tile occupying multiple rows.
+            Uses a 6-column grid on large screens and explicit col/row spans for the first items. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 auto-rows-[180px] lg:auto-rows-[220px]">
+          {products.map((p, i) => {
+            const span = (() => {
+              switch (i) {
+                case 0:
+                  return "lg:col-span-3 lg:row-span-2"; // hero: wide
+                case 1:
+                  return "lg:col-span-2 lg:row-span-2"; // tall accent: slightly wider (2 cols)
+                case 2:
+                  return "lg:col-span-1 lg:row-span-1"; // small tile
+                case 3:
+                  return "lg:col-span-1 lg:row-span-1"; // small tile
+                case 4:
+                  return "lg:col-span-2 lg:row-span-1"; // medium
+                default:
+                  return "lg:col-span-2 lg:row-span-1"; // fallback
+              }
+            })();
+
+            const isHero = i === 0;
+            const isTall = i === 1;
+
+            return (
+              <article
+                key={p.id}
+                className={`relative overflow-hidden rounded-2xl border border-border bg-card shadow-md transition-transform hover:-translate-y-1 hover:shadow-xl ${span}`}
+              >
+                <Link href={`/product/${p.slug}`} className="block h-full">
+                  <div className="relative w-full h-full">
+                    <img
+                      src={`https://picsum.photos/seed/${p.slug}/1600/1200`}
+                      alt={p.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+                    />
+
+                    <div className={`absolute inset-0 ${isHero ? 'bg-linear-to-t from-black/60 via-black/30 to-transparent dark:from-white/8' : 'bg-linear-to-t from-black/36 to-transparent dark:from-white/6'}`} />
+
+                    <div className={`absolute left-6 right-6 ${isHero ? 'bottom-10' : isTall ? 'bottom-6' : 'bottom-4'}`}>
+                      <h3 style={{ fontFamily: 'var(--font-logo)' }} className={`${isHero ? 'text-3xl lg:text-4xl' : 'text-lg lg:text-xl'} font-bold text-white drop-shadow-sm`}>{p.name}</h3>
+                      <p className={`${isHero ? 'mt-3 text-sm lg:text-base' : 'mt-2 text-xs'} max-w-2xl text-white/90 line-clamp-3`}>{p.description}</p>
+                    </div>
+
+                    <div className="absolute right-5 top-5 bg-primary text-primary-foreground px-3 py-1 rounded-full font-semibold">${p.price.toFixed(2)}</div>
+                  </div>
+
+                  <div className="p-4 bg-card border-t border-border">
+                    <div className="flex items-center justify-between">
+                      <div className="text-sm text-muted capitalize">{p.category}</div>
+                      <div className="text-sm font-medium text-foreground">{p.inventory > 0 ? `${p.inventory} in stock` : 'Out of stock'}</div>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            );
+          })}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </main>
   );
 }
