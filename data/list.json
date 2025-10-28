@@ -1,102 +1,112 @@
 [
-      {
-        "id": "p_001",
-        "name": "Minimal Leather Wallet",
-        "slug": "minimal-leather-wallet",
-        "description": "A slim, handcrafted leather wallet that fits easily in front pockets.",
-        "price": 49.99,
-        "category": "accessories",
-        "inventory": 120,
-        "lastUpdated": "2025-10-10T09:12:00.000Z"
-      },
-      {
-        "id": "p_002",
-        "name": "Everyday Backpack",
-        "slug": "everyday-backpack",
-        "description": "Durable, water-resistant backpack with padded laptop compartment.",
-        "price": 119.0,
-        "category": "bags",
-        "inventory": 54,
-        "lastUpdated": "2025-09-28T14:30:00.000Z"
-      },
-      {
-        "id": "p_003",
-        "name": "Organic Cotton Tee",
-        "slug": "organic-cotton-tee",
-        "description": "Soft, breathable tee made from 100% organic cotton.",
-        "price": 25.0,
-        "category": "apparel",
-        "inventory": 340,
-        "lastUpdated": "2025-10-20T08:00:00.000Z"
-      },
-      {
-        "id": "p_004",
-        "name": "Ceramic Coffee Mug",
-        "slug": "ceramic-coffee-mug",
-        "description": "Hand-glazed mug with comfortable handle and 350ml capacity.",
-        "price": 18.5,
-        "category": "home",
-        "inventory": 200,
-        "lastUpdated": "2025-08-15T12:00:00.000Z"
-      },
-      {
-        "id": "p_005",
-        "name": "Wireless Earbuds",
-        "slug": "wireless-earbuds",
-        "description": "Noise-isolating earbuds with long battery life and fast charging.",
-        "price": 89.99,
-        "category": "electronics",
-        "inventory": 75,
-        "lastUpdated": "2025-10-01T10:20:00.000Z"
-      },
-      {
-        "id": "p_006",
-        "name": "Minimal Desk Lamp",
-        "slug": "minimal-desk-lamp",
-        "description": "Adjustable desk lamp with warm LED light and dimming controls.",
-        "price": 64.0,
-        "category": "home",
-        "inventory": 30,
-        "lastUpdated": "2025-07-22T09:45:00.000Z"
-      },
-      {
-        "id": "p_007",
-        "name": "Travel Mug",
-        "slug": "travel-mug",
-        "description": "Insulated travel mug that keeps drinks hot for hours.",
-        "price": 29.99,
-        "category": "accessories",
-        "inventory": 150,
-        "lastUpdated": "2025-06-30T07:11:00.000Z"
-      },
-      {
-        "id": "p_008",
-        "name": "Performance Running Shorts",
-        "slug": "performance-running-shorts",
-        "description": "Lightweight shorts with breathable fabric and secure pocket.",
-        "price": 39.5,
-        "category": "apparel",
-        "inventory": 90,
-        "lastUpdated": "2025-10-18T11:05:00.000Z"
-      },
-      {
-        "id": "p_009",
-        "name": "Bamboo Sunglasses",
-        "slug": "bamboo-sunglasses",
-        "description": "Sustainable bamboo frame sunglasses with polarized lenses.",
-        "price": 79.0,
-        "category": "accessories",
-        "inventory": 8,
-        "lastUpdated": "2025-10-22T09:12:00.000Z"
-      },
-      {
-        "id": "p_010",
-        "name": "Wireless Earbuds Pro",
-        "slug": "wireless-earbuds-pro",
-        "description": "Noise-cancelling earbuds with long battery life and fast charging case.",
-        "price": 199.99,
-        "category": "electronics",
-        "inventory": 42,
-        "lastUpdated": "2025-10-24T18:20:30.000Z"
-      }
+  {
+    "id": "p_001",
+    "name": "Minimal Leather Wallet",
+    "slug": "minimal-leather-wallet",
+    "description": "A slim, handcrafted leather wallet that fits easily in front pockets.",
+    "price": 49.99,
+    "category": "accessories",
+    "inventory": 120,
+    "lastUpdated": "2025-10-10T09:12:00.000Z",
+    "image": "https://picsum.photos/seed/minimal-leather-wallet/1600/1200"
+  },
+  {
+    "id": "p_002",
+    "name": "Everyday Backpack",
+    "slug": "everyday-backpack",
+    "description": "Durable, water-resistant backpack with padded laptop compartment.",
+    "price": 119.0,
+    "category": "bags",
+    "inventory": 54,
+    "lastUpdated": "2025-09-28T14:30:00.000Z",
+    "image": "https://picsum.photos/seed/everyday-backpack/1600/1200"
+  },
+  {
+    "id": "p_003",
+    "name": "Organic Cotton Tee",
+    "slug": "organic-cotton-tee",
+    "description": "Soft, breathable tee made from 100% organic cotton.",
+    "price": 25.0,
+    "category": "apparel",
+    "inventory": 340,
+    "lastUpdated": "2025-10-20T08:00:00.000Z",
+    "image": "https://picsum.photos/seed/organic-cotton-tee/1600/1200"
+  },
+  {
+    "id": "p_004",
+    "name": "Ceramic Coffee Mug",
+    "slug": "ceramic-coffee-mug",
+    "description": "Hand-glazed mug with comfortable handle and 350ml capacity.",
+    "price": 18.5,
+    "category": "home",
+    "inventory": 200,
+    "lastUpdated": "2025-08-15T12:00:00.000Z",
+    "image": "https://picsum.photos/seed/ceramic-coffee-mug/1600/1200"
+  },
+  {
+    "id": "p_005",
+    "name": "Wireless Earbuds",
+    "slug": "wireless-earbuds",
+    "description": "Noise-isolating earbuds with long battery life and fast charging.",
+    "price": 89.99,
+    "category": "electronics",
+    "inventory": 75,
+    "lastUpdated": "2025-10-01T10:20:00.000Z",
+    "image": "https://picsum.photos/seed/wireless-earbuds/1600/1200"
+  },
+  {
+    "id": "p_006",
+    "name": "Minimal Desk Lamp",
+    "slug": "minimal-desk-lamp",
+    "description": "Adjustable desk lamp with warm LED light and dimming controls.",
+    "price": 64.0,
+    "category": "home",
+    "inventory": 30,
+    "lastUpdated": "2025-07-22T09:45:00.000Z",
+    "image": "https://picsum.photos/seed/minimal-desk-lamp/1600/1200"
+  },
+  {
+    "id": "p_007",
+    "name": "Travel Mug",
+    "slug": "travel-mug",
+    "description": "Insulated travel mug that keeps drinks hot for hours.",
+    "price": 29.99,
+    "category": "accessories",
+    "inventory": 150,
+    "lastUpdated": "2025-06-30T07:11:00.000Z",
+    "image": "https://picsum.photos/seed/travel-mug/1600/1200"
+  },
+  {
+    "id": "p_008",
+    "name": "Performance Running Shorts",
+    "slug": "performance-running-shorts",
+    "description": "Lightweight shorts with breathable fabric and secure pocket.",
+    "price": 39.5,
+    "category": "apparel",
+    "inventory": 90,
+    "lastUpdated": "2025-10-18T11:05:00.000Z",
+    "image": "https://picsum.photos/seed/performance-running-shorts/1600/1200"
+  },
+  {
+    "id": "p_009",
+    "name": "Bamboo Sunglasses",
+    "slug": "bamboo-sunglasses",
+    "description": "Sustainable bamboo frame sunglasses with polarized lenses.",
+    "price": 79.0,
+    "category": "accessories",
+    "inventory": 8,
+    "lastUpdated": "2025-10-22T09:12:00.000Z",
+    "image": "https://picsum.photos/seed/bamboo-sunglasses/1600/1200"
+  },
+  {
+    "id": "p_010",
+    "name": "Wireless Earbuds Pro",
+    "slug": "wireless-earbuds-pro",
+    "description": "Noise-cancelling earbuds with long battery life and fast charging case.",
+    "price": 199.99,
+    "category": "electronics",
+    "inventory": 42,
+    "lastUpdated": "2025-10-24T18:20:30.000Z",
+    "image": "https://picsum.photos/seed/wireless-earbuds-pro/1600/1200"
+  }
 ]

@@ -6,6 +6,7 @@ type Product = {
   id: string;
   name: string;
   slug: string;
+  image?: string;
   description: string;
   price: number;
   category: string;
@@ -31,7 +32,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="md:col-span-2">
           <div className="rounded-lg overflow-hidden bg-muted/10">
             <img
-              src={`https://picsum.photos/seed/${product.slug}/1200/900`}
+              src={product.image}
               alt={product.name}
               className="w-full h-[420px] object-cover"
             />

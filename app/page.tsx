@@ -5,6 +5,7 @@ type Product = {
   id: string;
   name: string;
   slug: string;
+  image?: string;
   description: string;
   price: number;
   category: string;
@@ -55,7 +56,7 @@ export default function Home() {
                 <Link href={`/product/${p.slug}`} className="block h-full">
                   <div className="relative w-full h-full">
                     <img
-                      src={`https://picsum.photos/seed/${p.slug}/1600/1200`}
+                      src={p.image}
                       alt={p.name}
                       className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
                     />
