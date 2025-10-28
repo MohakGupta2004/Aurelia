@@ -20,7 +20,7 @@ export default function Home() {
     <main className="max-w-6xl mx-auto p-6">
       <header className="mb-6">
         <h1 style={{ fontFamily: "var(--font-logo)" }} className="text-4xl font-bold">Products</h1>
-        <p className="text-muted mt-1">A showcase of our catalog — click a product to view details.</p>
+        <p className="text-muted mt-1 text-white">A showcase of our catalog — click a product to view details.</p>
       </header>
 
       <section className="min-h-screen">

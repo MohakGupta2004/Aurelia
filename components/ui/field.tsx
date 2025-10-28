@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
+//@ts-ignore
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"

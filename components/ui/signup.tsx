@@ -31,14 +31,14 @@ export function LoginForm({
     const password = (fd.get("password") || "").toString()
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       })
       const data = await res.json()
       if (!res.ok) {
-        setError(data.error || "Login failed")
+        setError(data.error || "Signup failed")
         setLoading(false)
         return
       }
@@ -50,7 +50,6 @@ export function LoginForm({
         // ignore in non-browser env
       }
 
-      // redirect to home
       router.push("/")
     } catch (err: any) {
       setError(err?.message || "Network error")
@@ -68,9 +67,9 @@ export function LoginForm({
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-logo)" }}>Sign in to your account</h1>
+          <h1 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-logo)" }}>Create your account</h1>
           <p className="text-muted-foreground text-sm">
-            Welcome back — sign in to access your orders, wishlist, and faster checkout.
+            Join Aurelia — create an account to save favorites, checkout faster, and track your orders.
           </p>
         </div>
         <Field>
@@ -90,7 +89,7 @@ export function LoginForm({
           <Input id="password" name="password" type="password" required />
         </Field>
         <Field>
-          <Button type="submit" disabled={loading}>{loading ? 'Signing in...' : 'Login'}</Button>
+          <Button type="submit" disabled={loading}>{loading ? 'Creating...' : 'Create account'}</Button>
         </Field>
         {error && (
           <div className="text-sm text-destructive text-center">{error}</div>
@@ -98,12 +97,12 @@ export function LoginForm({
         <FieldSeparator>Or continue with</FieldSeparator>
         <Field>
           <Button variant="outline" type="button">
-            Login with Google
+            Continue with Google
           </Button>
           <FieldDescription className="text-center">
-            Don&apos;t have an account?{' '}
-            <Link href="/signup" className="underline underline-offset-4 text-primary">
-              Sign up
+            Already have an account?{' '}
+            <Link  href="/login" className="underline underline-offset-4 text-primary">
+              Sign in
             </Link>
           </FieldDescription>
         </Field>
